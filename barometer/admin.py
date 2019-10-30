@@ -1,3 +1,17 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Stat
+
+
+class StatAdmin(admin.ModelAdmin):
+    list_display = (
+        'ap',
+        'max',
+        'current',
+        'min',
+        'avg',
+        'timestamp',
+    )
+
+
+admin.site.register(Stat, StatAdmin)
