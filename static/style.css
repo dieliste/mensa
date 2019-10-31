@@ -1,3 +1,126 @@
 body {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+div.container {
+	height:100vh;
+	display: grid;
+	grid-template-areas:
+	"header header header"
+	"left content right"
+	"footer footer footer";
+	grid-template-columns: 1fr 100px 1fr;
+	grid-template-rows: auto 410px auto;
+}
+
+header {
+	grid-area: header;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+}
+
+main {
+	grid-area: content;
+	padding-top: 25px;
+}
+
+main .glass {
+	background: #e5e5e5;
+	border-radius: 100px 100px 0 0;
+	display: block;
+	height: 300px;
+	margin: 0 35px 10px;
+	padding: 5px;
+	position: relative;
+	width: 20px;
+}
+
+main .amount {
+	background: #f34e54;
+	border-radius: 100px;
+	display: block;
+	width: 20px;
+	position: absolute;
+	bottom: -5px;
+}
+
+main strong {
+	display: block;
+	text-align: center;
+}
+
+main .goal {
+	font-size: 30px;
+}
+
+main .total {
+	font-size: 16px;
+	position: absolute;
+	right: 35px;
+}
+
+.bulb {
+	background: #e5e5e5;
+	border-radius: 100px;
+	display: block;
+	height: 50px;
+	margin: 0 35px 10px;
+	padding: 5px;
+	position: relative;
+	top: -20px;
+	right: 15px;
+	width: 50px;
+}
+
+.bulb .red-circle {
+	background: #f34e54;
+	border-radius: 100px;
+	display: block;
+	height: 50px;
+	width: 50px;
+}
+
+.bulb .filler {
+	background: #f34e54;
+	border-radius: 100px 100px 0 0;
+	display: block;
+	height: 30px;
+	width: 20px;
+	position: relative;
+	top: -65px;
+	right: -15px;
+	z-index: 30;
+}
+
+aside.left {
+	grid-area: left;
+}
+
+aside.right {
+	grid-area: right;
+	padding: 20px 0px;
+}
+
+aside.right ul {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	list-style: none;
+	padding-left: 0;
+}
+
+aside.right ul li {
+	height: 45px;
+}
+
+footer {
+	grid-area: footer;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
 }

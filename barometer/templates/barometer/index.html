@@ -12,8 +12,38 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
 	</head>
 	<body>
-		<main>
-			<p>What is this?</p>
+		<div class="container">
+			<header>
+				<strong>Wie lange ist die Schlange?</strong>
+			</header>
+			<aside class="left">
+
+			</aside>
+			<main>
+				<span class="glass">
+					<span class="amount" style="height: {{ percent }}%; background: {{ color }}"></span>
+				</span>
+				<div class="bulb">
+					<span class="red-circle" style="background: {{ color }}"></span>
+					<span class="filler" style="background: {{ color }}">
+						<!--<span></span>-->
+					</span>
+				</div>
+			</main>
+			<aside class="right">
+				<ul>
+					<li>Schlange des Todes</li>
+					<li></li>
+					<li>Blockabfertigung</li>
+					<li></li>
+					<li>Jetz geht's los!</li>
+					<li></li>
+					<li>Alles im grünen Bereich</li>
+				</ul>
+			</aside>
+			<footer>
+				<strong>In der Mensa: {{ current }} Menschen</strong>
+			</footer>
 		</main>
 	</body>
 </html>
