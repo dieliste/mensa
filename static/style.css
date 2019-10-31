@@ -5,14 +5,15 @@ body {
 }
 
 div.container {
-	height:100vh;
+	height: 100vh;
+	max-height: -webkit-fill-available;
 	display: grid;
 	grid-template-areas:
 	"header header header"
 	"left content right"
 	"footer footer footer";
 	grid-template-columns: 1fr 100px 1fr;
-	grid-template-rows: auto 410px auto;
+	grid-template-rows: auto 400px auto;
 }
 
 header {
@@ -25,7 +26,7 @@ header {
 
 main {
 	grid-area: content;
-	padding-top: 25px;
+	padding-top: 20px;
 }
 
 main .glass {
@@ -98,11 +99,12 @@ main .total {
 
 aside.left {
 	grid-area: left;
+	padding: 20px 0px 20px 10px;
 }
 
 aside.right {
 	grid-area: right;
-	padding: 20px 0px;
+	padding: 20px 10px 20px 0px;
 }
 
 aside.right ul {
