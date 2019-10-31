@@ -23,6 +23,10 @@ def main():
                             password=os.environ['DATABASE_PASSWORD'])
     cursor = conn.cursor()
 
+    # TODO: get data from JSON API @
+    # http://graphite-kom.srv.lrz.de/render/?tz=CET&from=-24hours&target=cactiStyle(group(alias(ap.apa01-0mg.ssid.eduroam,%22eduroam%22),alias(ap.apa01-0mg.ssid.lrz,%22lrz%22),alias(ap.apa01-0mg.ssid.mwn-events,%22mwn-events%22),alias(ap.apa01-0mg.ssid.@BayernWLAN,%22@BayernWLAN%22),alias(ap.apa01-0mg.ssid.other,%22other%22)))&format=json
+    # instead of wlan.lrz.de
+
     page = get_stats()
 
     # creepy regex, do not touch unless you know what you do
