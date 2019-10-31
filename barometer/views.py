@@ -27,7 +27,7 @@ def index(request):
     current = sum([s.current for s in stats])
     percent = (current / 1500 if current / 1500 < 1 else 1) * 100
 
-    colors = ['#2dde57', '#2dde57', '#2dde57', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f34e54', '#f34e54', '#f34e54']
+    colors = ['#2dde57', '#2dde57', '#2dde57', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#ed0009', '#ed0009', '#ed0009']
     color = colors[ceil(percent / 10) - 1]
 
     context = {

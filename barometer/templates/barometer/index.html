@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,7 @@
 			</aside>
 			<main>
 				<span class="glass">
-					<span class="amount" style="height: {{ percent }}%; background: {{ color }}"></span>
+					<span class="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
 				</span>
 				<div class="bulb">
 					<span class="red-circle" style="background: {{ color }}"></span>
@@ -42,7 +43,7 @@
 				</ul>
 			</aside>
 			<footer>
-				<strong>In der Mensa: {{ current }} Menschen</strong>
+				<strong>In der Mensa: {{ current|intcomma }} Menschen</strong>
 			</footer>
 		</main>
 	</body>
