@@ -5,7 +5,8 @@ from django.utils.translation import gettext_lazy as _
 class Stat(models.Model):
     ap = models.CharField(
         _('ap'),
-        max_length=127
+        max_length=63,
+        unique=True,
     )
 
     max = models.PositiveIntegerField(
@@ -28,7 +29,7 @@ class Stat(models.Model):
 
     timestamp = models.DateTimeField(
         _('timestamp'),
-        auto_now_add=True,
+        auto_now=True,
     )
 
     def __str__(self):

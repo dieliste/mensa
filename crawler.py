@@ -9,7 +9,11 @@ API = 'http://wlan.lrz.de'
 
 
 def db_update_stats(cursor, stats):
-    cursor.executemany('INSERT INTO barometer_stat (ap, max, current, min, avg, timestamp) VALUES (%s,%s,%s,%s,%s,current_timestamp)', stats)
+    cursor.executemany(
+        '''INSERT INTO homometer_stat (ap, max, current, min, avg, timestamp) VALUES (%s,%s,%s,%s,%s,current_timestamp)
+                            ON CONFLICT (ap)
+                            DO UPDATE SET max = EXCLUDED.max, current = EXCLUDED.current, min = EXCLUDED.min, avg = EXCLUDED.avg, timestamp = EXCLUDED.timestamp''',
+        stats)
 
 
 def get_stats():
