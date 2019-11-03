@@ -7,9 +7,9 @@ from math import ceil
 
 def index(request):
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
-    current = current if current else 0
+    current = current - 15 if current and current >= 15 else 0
 
-    percent = (current / 1500 if current / 1500 < 1 else 1) * 100
+    percent = (current / 1500 if current / 1500 < 0.99 else 0.99) * 100 + 1
 
     colors = ['#2dde57', '#2dde57', '#2dde57', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#ed0009', '#ed0009', '#ed0009']
     color = colors[ceil(percent / 10) - 1]
