@@ -17,7 +17,7 @@ def db_update_stats(cursor, stats):
 
 
 def get_stats():
-    return requests.get(API + "/apstat/").text
+    return requests.get(API + "/apstat/filter/Unterbezirk/mg/").text
 
 
 def main():
