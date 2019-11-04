@@ -7,7 +7,7 @@ from math import ceil
 
 def index(request):
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
-    current = current - 15 if current and current >= 15 else 0
+    current = current if current else 0
 
     percent = (current / 1500 if current / 1500 < 0.99 else 0.99) * 100 + 1
 
