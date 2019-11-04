@@ -6,10 +6,7 @@ from .models import Stat
 class StatAdmin(admin.ModelAdmin):
     list_display = (
         'ap',
-        'max',
         'current',
-        'min',
-        'avg',
         'timestamp',
     )
 

@@ -9,22 +9,8 @@ class Stat(models.Model):
         unique=True,
     )
 
-    max = models.PositiveIntegerField(
-        _('max'),
-    )
-
     current = models.PositiveIntegerField(
         _('current'),
-    )
-
-    min = models.PositiveIntegerField(
-        _('min'),
-    )
-
-    avg = models.DecimalField(
-        _('avg'),
-        max_digits=5,
-        decimal_places=2,
     )
 
     timestamp = models.DateTimeField(
