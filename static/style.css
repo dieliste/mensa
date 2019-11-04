@@ -126,3 +126,7 @@ footer {
 	text-align: center;
 	justify-content: center;
 }
+
+footer a {
+	padding-top: 20px;
+}
