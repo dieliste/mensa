@@ -30,7 +30,7 @@ def main():
     page = get_stats()
 
     stats = dict()
-    aps = list(map(lambda x: (x['target'].split('.')[1], x['datapoints'][-1][0] if x['datapoints'][-1][0] else 0), page))
+    aps = list(map(lambda x: (x['target'].split('.')[1], x['datapoints'][-1][0] if x['datapoints'][-1][0] else x['datapoints'][-2][0] if x['datapoints'][-2][0] else 0), page))
 
     for (ap, current) in aps:
         if ap in stats:
