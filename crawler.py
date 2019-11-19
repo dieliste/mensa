@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 
 import os
+import django
 import re
 import requests
 import psycopg2
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mensa.settings")
+django.setup()
+
+from homometer.models import Stat
+
+
 API = 'http://graphite-kom.srv.lrz.de'
 
-# TODO: use homometer model?
-def db_update_stats(cursor, stats):
-    cursor.executemany(
-        '''INSERT INTO homometer_stat (ap, current, timestamp) VALUES (%s,%s,current_timestamp)
-                            ON CONFLICT (ap)
-                            DO UPDATE SET current = EXCLUDED.current, timestamp = EXCLUDED.timestamp''',
-        stats)
+
+def db_update_stats(stats):
+    for k, v in stats:
+        Stat.objects.update_or_create(
+            ap=k,
+            defaults={'current': v},
+        )
 
 
 def get_stats():
@@ -21,12 +28,6 @@ def get_stats():
 
 
 def main():
-    conn = psycopg2.connect(host=os.environ['DATABASE_HOST'],
-                            dbname=os.environ['DATABASE_NAME'],
-                            user=os.environ['DATABASE_USERNAME'],
-                            password=os.environ['DATABASE_PASSWORD'])
-    cursor = conn.cursor()
-
     page = get_stats()
 
     stats = dict()
@@ -40,10 +41,7 @@ def main():
 
     stats = [(k, v) for k, v in stats.items()]
 
-    db_update_stats(cursor, stats)
-
-    conn.commit()
-    conn.close()
+    db_update_stats(stats)
 
 
 if __name__ == "__main__":
