@@ -1,0 +1,58 @@
+# mensa
+# Copyright (C) 2019 Simon Ellmann
+# This file is distributed under the same license as the mensa package.
+# Simon Ellmann <simon.ellmann@tum.de>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-27 22:06+0100\n"
+"PO-Revision-Date: 2019-11-27 23:06+0100\n"
+"Last-Translator: Simon Ellmann <simon.ellmann@tum.de>\n"
+"Language-Team: NOREPLY <noreply@liste.party>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: models.py:7
+msgid "ap"
+msgstr "AP"
+
+#: models.py:13
+msgid "current"
+msgstr "Aktuell"
+
+#: models.py:17
+msgid "timestamp"
+msgstr "Zeitstempel"
+
+#: templates/homometer/index.html:20
+msgid "How long is the queue?"
+msgstr "Wie lange ist die Schlange?"
+
+#: templates/homometer/index.html:37
+msgid "Queue of death"
+msgstr "Schlange des Todes"
+
+#: templates/homometer/index.html:39
+msgid "Block processing"
+msgstr "Blockabfertigung"
+
+#: templates/homometer/index.html:41
+msgid "Here we go!"
+msgstr "Jetz geht's los!"
+
+#: templates/homometer/index.html:43
+msgid "Everything in the green"
+msgstr "Alles im grünen Bereich"
+
+#: templates/homometer/index.html:48
+msgid "Currently at mensa"
+msgstr "In der Mensa"
+
+#: templates/homometer/index.html:48
+msgid "people"
+msgstr "Menschen"

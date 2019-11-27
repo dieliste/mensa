@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
 		<div class="container">
 			{% if minimal is False %}
 			<header>
-				<strong>Wie lange ist die Schlange?</strong>
+				<strong>{% trans 'How long is the queue?' %}</strong>
 			</header>
 			<aside class="left">
 
@@ -33,18 +34,18 @@
 			</main>
 			<aside class="right">
 				<ul>
-					<li>Schlange des Todes</li>
+					<li>{% trans 'Queue of death' %}</li>
 					<li></li>
-					<li>Blockabfertigung</li>
+					<li>{% trans 'Block processing' %}</li>
 					<li></li>
-					<li>Jetz geht's los!</li>
+					<li>{% trans 'Here we go!' %}</li>
 					<li></li>
-					<li>Alles im grünen Bereich</li>
+					<li>{% trans 'Everything in the green' %}</li>
 				</ul>
 			</aside>
 			{% if minimal is False %}
 			<footer>
-				<strong>In der Mensa: {{ current|intcomma }} Menschen</strong>
+				<strong>{% trans 'Currently at mensa' %}: {{ current|intcomma }} {% trans 'people' %}</strong>
 				<a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
 			</footer>
 			{% endif %}
