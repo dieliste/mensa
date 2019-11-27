@@ -14,21 +14,21 @@
 	</head>
 	<body>
 		<div class="container">
+			{% if minimal is False %}
 			<header>
 				<strong>Wie lange ist die Schlange?</strong>
 			</header>
 			<aside class="left">
 
 			</aside>
+			{% endif %}
 			<main>
 				<span class="glass">
 					<span class="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
 				</span>
 				<div class="bulb">
 					<span class="red-circle" style="background: {{ color }}"></span>
-					<span class="filler" style="background: {{ color }}">
-						<!--<span></span>-->
-					</span>
+					<span class="filler" style="background: {{ color }}"></span>
 				</div>
 			</main>
 			<aside class="right">
@@ -42,10 +42,12 @@
 					<li>Alles im grünen Bereich</li>
 				</ul>
 			</aside>
+			{% if minimal is False %}
 			<footer>
 				<strong>In der Mensa: {{ current|intcomma }} Menschen</strong>
 				<a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
 			</footer>
+			{% endif %}
 		</div>
 	</body>
 </html>

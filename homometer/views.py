@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.db.models import Sum
-
-from .models import Stat
 from math import ceil
 
-def index(request):
+from .models import Stat
+
+
+def index(request, minimal=False):
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
     current = current if current else 0
 
@@ -18,6 +18,7 @@ def index(request):
         'current': current,
         'percent': percent,
         'color': color,
+        'minimal': minimal,
     }
 
     return render(request, 'homometer/index.html', context)

@@ -19,5 +19,6 @@ from homometer import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('minimal/', views.index, kwargs={'minimal': True}, name='index'),
     path('', views.index, name='index'),
 ]
