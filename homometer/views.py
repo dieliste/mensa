@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.db.models import Sum
+from django.views.decorators.clickjacking import xframe_options_exempt
 from math import ceil
 
 from .models import Stat
 
 
+@xframe_options_exempt
 def index(request, minimal=False):
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
     current = current if current else 0
