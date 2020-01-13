@@ -31,7 +31,7 @@ def main():
                               else 0), page))
 
     stats = dict()
-    for (ap, current) in aps:
+    for ap, current in aps:
         if ap in stats:
             stats[ap] += current
         else:

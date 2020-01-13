@@ -6,7 +6,6 @@ from math import ceil
 from .models import Stat
 
 
-@xframe_options_exempt
 def index(request, minimal=False):
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
     current = current if current else 0
@@ -19,8 +18,13 @@ def index(request, minimal=False):
     context = {
         'current': current,
         'percent': percent,
-        'color': color,
+        'color':   color,
         'minimal': minimal,
     }
 
     return render(request, 'homometer/index.html', context)
+
+
+@xframe_options_exempt
+def index_minimal(request):
+    return index(request, minimal=True)

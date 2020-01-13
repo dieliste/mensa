@@ -144,6 +144,7 @@ if 'DJANGO_PRODUCTION' in os.environ:
             'PORT': '',
         }
     }
+
     STATIC_ROOT = STATIC_DIR
 else:
     STATICFILES_DIRS = [STATIC_DIR]
