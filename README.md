@@ -28,3 +28,7 @@ python3 manage.py createsuperuser
 
 Start the Django server with `python3 manage.py runserver` and head to [http://localhost:8000/](http://localhost:8000/).
 
+## What's the best time for lunch?
+
+Have a look at [https://github.com/emmericp/mensa-stats](https://github.com/emmericp/mensa-stats).
+
