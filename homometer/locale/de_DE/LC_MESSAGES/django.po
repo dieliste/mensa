@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-28 13:49+0100\n"
+"POT-Creation-Date: 2020-01-13 15:00+0100\n"
 "PO-Revision-Date: 2019-11-27 23:06+0100\n"
 "Last-Translator: Simon Ellmann <simon.ellmann@tum.de>\n"
 "Language-Team: NOREPLY <noreply@liste.party>\n"
@@ -38,7 +38,7 @@ msgid "Queue of death"
 msgstr "Schlange des Todes"
 
 #: templates/homometer/index.html:39
-msgid "Block processing"
+msgid "Batch processing"
 msgstr "Blockabfertigung"
 
 #: templates/homometer/index.html:41
@@ -46,7 +46,7 @@ msgid "Here we go!"
 msgstr "Jetz geht's los!"
 
 #: templates/homometer/index.html:43
-msgid "Everything in the green"
+msgid "All good"
 msgstr "Alles im grünen Bereich"
 
 #: templates/homometer/index.html:48

@@ -8,10 +8,11 @@ It is recommended to create a virtual environment for this project, e.g. using [
 
 To install the dependencies run `pip3 install -r requirements.txt`.
 
-Apply all database migrations:
+Apply all database migrations and localizations:
 
 ```
 python3 manage.py migrate
+python3 manage.py compilemessages
 ```
 
 Run the crawler:
