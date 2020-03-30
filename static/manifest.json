@@ -1,9 +1,9 @@
 {
-  "name": "TUM Mensa",
-  "short_name": "TUM Mensa",
+  "name": "Mensa-Homometer",
+  "short_name": "Mensa-Homometer",
   "icons": [
     {
-      "src": "/images/favicon-192.png",
+      "src": "/static/favicon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
