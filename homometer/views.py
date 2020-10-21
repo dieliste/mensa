@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from django.db.models import Sum
 from django.views.decorators.clickjacking import xframe_options_exempt
-from math import ceil
+from math import floor
 
 from .models import Stat
 
 
 def index(request, minimal=False):
+    # It would be nice if the aggregate function could return a default value when
+    # there are no rows: https://code.djangoproject.com/ticket/10929
     current = Stat.objects.aggregate(current_sum=Sum('current'))['current_sum']
     current = current if current else 0
 
-    percent = (current / 1500 if current / 1500 < 0.99 else 0.99) * 100 + 1
+    # clip current to range [0, 1500] and convert to percent
+    percent = (sorted([0, current, 1500])[1] / 1500) * 100
 
-    colors = ['#2dde57', '#2dde57', '#2dde57', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#ed0009', '#ed0009', '#ed0009']
-    color = colors[ceil(percent / 10) - 1]
+    colors = ['#2dde57', '#2dde57', '#2dde57', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#f3ad4e', '#ed0009', '#ed0009', '#ed0009', '#ed0009']
+    color = colors[floor(percent / 10)]
 
     context = {
         'current': current,
