@@ -25,10 +25,8 @@ def update_stats(stats):
 def main():
     page = get_stats()
 
-    aps = list(map(lambda x: (x['target'].split('.')[1],
-                              x['datapoints'][-1][0] if x['datapoints'][-1][0]
-                              else x['datapoints'][-2][0] if x['datapoints'][-2][0]
-                              else 0), page))
+    aps = list(map(lambda x: (x['target'].split('.')[1], x['datapoints'][-1][0]
+                                or x['datapoints'][-2][0] or 0), page))
 
     stats = dict()
     for ap, current in aps:
