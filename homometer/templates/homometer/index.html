@@ -4,63 +4,63 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-		<title>Mensa-Homometer</title>
-		<link href="{% static 'style.css' %}" rel="stylesheet" />
-		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon-180.png' %}" />
-		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32.png' %}" />
-		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16.png' %}" />
-		<link rel="manifest" href="{% static 'manifest.json' %}" />
-	</head>
-	<body>
-		<div class="container">
-			{% if minimal is False %}
-			<header>
-				<strong>{% trans 'How long is the queue?' %}</strong>
-			</header>
-			<aside class="left">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Mensa-Homometer</title>
+        <link href="{% static 'style.css' %}" rel="stylesheet" />
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon-180.png' %}" />
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32.png' %}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16.png' %}" />
+        <link rel="manifest" href="{% static 'manifest.json' %}" />
+    </head>
+    <body>
+        <div class="container">
+            {% if minimal is False %}
+            <header>
+                <strong>{% trans 'How long is the queue?' %}</strong>
+            </header>
+            <aside class="left">
 
-			</aside>
-			{% endif %}
-			<main>
-				<span class="glass">
-					<span id="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
-				</span>
-				<div class="bulb">
-					<span class="red-circle" style="background: {{ color }}"></span>
-					<span class="filler" style="background: {{ color }}"></span>
-				</div>
-			</main>
-			<aside class="right">
-				<ul>
-					<li>{% trans 'Queue of death' %}</li>
-					<li></li>
-					<li>{% trans 'Batch processing' %}</li>
-					<li></li>
-					<li>{% trans 'Here we go!' %}</li>
-					<li></li>
-					<li>{% trans 'All good' %}</li>
-				</ul>
-			</aside>
-			{% if minimal is False %}
-			<footer>
-				<strong>{% trans 'Currently at mensa' %}: <span id="current">{{ current|intcomma }}</span> {% blocktrans count counter=current %}person{% plural %}people{% endblocktrans %}</strong>
-				<a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
-			</footer>
-			{% endif %}
-		</div>
-		<script>
-			async function fetchRecentData() {
-				const response = await fetch('/api/');
-				const stats = await response.json();
-				document.getElementById("current").textContent = stats.current;
-				document.getElementById("amount").style.height = stats.percent + "%";
-				setTimeout(fetchRecentData, 5000);
-			}
+            </aside>
+            {% endif %}
+            <main>
+                <span class="glass">
+                    <span id="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
+                </span>
+                <div class="bulb">
+                    <span class="red-circle" style="background: {{ color }}"></span>
+                    <span class="filler" style="background: {{ color }}"></span>
+                </div>
+            </main>
+            <aside class="right">
+                <ul>
+                    <li>{% trans 'Queue of death' %}</li>
+                    <li></li>
+                    <li>{% trans 'Batch processing' %}</li>
+                    <li></li>
+                    <li>{% trans 'Here we go!' %}</li>
+                    <li></li>
+                    <li>{% trans 'All good' %}</li>
+                </ul>
+            </aside>
+            {% if minimal is False %}
+            <footer>
+                <strong>{% trans 'Currently at mensa' %}: <span id="current">{{ current|intcomma }}</span> {% blocktrans count counter=current %}person{% plural %}people{% endblocktrans %}</strong>
+                <a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
+            </footer>
+            {% endif %}
+        </div>
+        <script>
+            async function fetchRecentData() {
+                            const response = await fetch('/api/');
+                            const stats = await response.json();
+                            document.getElementById("current").textContent = stats.current;
+                            document.getElementById("amount").style.height = stats.percent + "%";
+                            setTimeout(fetchRecentData, 5000);
+                        }
 
-			fetchRecentData();
-		</script>
-	</body>
+            fetchRecentData();
+        </script>
+    </body>
 </html>
