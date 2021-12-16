@@ -26,7 +26,7 @@
 			{% endif %}
 			<main>
 				<span class="glass">
-					<span class="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
+					<span id="amount" style="height: {{ percent|safe }}%; background: {{ color }}"></span>
 				</span>
 				<div class="bulb">
 					<span class="red-circle" style="background: {{ color }}"></span>
@@ -46,10 +46,21 @@
 			</aside>
 			{% if minimal is False %}
 			<footer>
-				<strong>{% trans 'Currently at mensa' %}: {{ current|intcomma }} {% blocktrans count counter=current %}person{% plural %}people{% endblocktrans %}</strong>
+				<strong>{% trans 'Currently at mensa' %}: <span id="current">{{ current|intcomma }}</span> {% blocktrans count counter=current %}person{% plural %}people{% endblocktrans %}</strong>
 				<a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
 			</footer>
 			{% endif %}
 		</div>
+		<script>
+			async function fetchRecentData() {
+				const response = await fetch('/api/');
+				const stats = await response.json();
+				document.getElementById("current").textContent = stats.current;
+				document.getElementById("amount").style.height = stats.percent + "%";
+				setTimeout(fetchRecentData, 5000);
+			}
+
+			fetchRecentData();
+		</script>
 	</body>
 </html>

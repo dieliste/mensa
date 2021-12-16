@@ -40,7 +40,7 @@ main .glass {
 	width: 20px;
 }
 
-main .amount {
+main #amount {
 	border-radius: 100px;
 	display: block;
 	width: 20px;
