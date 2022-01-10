@@ -53,12 +53,12 @@
         </div>
         <script>
             async function fetchRecentData() {
-                            const response = await fetch('/api/');
-                            const stats = await response.json();
-                            document.getElementById("current").textContent = stats.current;
-                            document.getElementById("amount").style.height = stats.percent + "%";
-                            setTimeout(fetchRecentData, 5000);
-                        }
+                const response = await fetch('/api/');
+                const stats = await response.json();
+                document.getElementById("current").textContent = stats.current;
+                document.getElementById("amount").style.height = stats.percent + "%";
+                setTimeout(fetchRecentData, 5000);
+            }
 
             fetchRecentData();
         </script>
