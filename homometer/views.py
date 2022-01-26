@@ -21,7 +21,9 @@ def get_current_and_percent():
 
 def api(request):
     current, percent = get_current_and_percent()
-    return JsonResponse({"current": current, "percent": percent})
+    response = JsonResponse({"current": current, "percent": percent})
+    response["Access-Control-Allow-Origin"] = "*"
+    return response
 
 
 def index(request, minimal=False):
