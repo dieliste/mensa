@@ -129,3 +129,13 @@ footer {
 footer a {
     padding-top: 20px;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #0b0c10;
+        color: #e5e6e7;
+    }
+    .github {
+        content: url("/static/github-white.png");
+    }
+}

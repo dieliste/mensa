@@ -47,7 +47,7 @@
             {% if minimal is False %}
             <footer>
                 <strong>{% trans 'Currently at mensa' %}: <span id="current">{{ current|intcomma }}</span> {% blocktrans count counter=current %}person{% plural %}people{% endblocktrans %}</strong>
-                <a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" /></a>
+                <a href="https://github.com/dieliste/mensa" target="_blank"><img height="32" width="32" alt="GitHub" src="/static/github.png" class="github"/></a>
             </footer>
             {% endif %}
         </div>
