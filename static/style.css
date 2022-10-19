@@ -136,6 +136,6 @@ footer a {
         color: #e5e6e7;
     }
     .github {
-        content:url("/static/github-white.png");
+        content: url("/static/github-white.png");
     }
 }
